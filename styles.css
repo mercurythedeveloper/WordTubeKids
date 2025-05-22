@@ -1,4 +1,4 @@
-/* Additional animations and transitions */
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -9,69 +9,134 @@
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* Additional hover effects */
+/* Hover Effects */
 .feature-card {
-    animation: fadeIn 0.5s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature-card:hover .feature-icon {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
+.feature-card:hover {
+    transform: translateY(-5px);
 }
 
 .store-button {
-    animation: slideUp 0.5s ease-out;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .store-button:hover {
-    transform: translateY(-2px);
-    transition: transform 0.2s ease;
+    transform: scale(1.05);
 }
 
-/* Additional responsive styles */
+/* Responsive Styles */
 @media (max-width: 640px) {
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
     }
-    
+
     .section-title {
-        font-size: 2rem;
+        font-size: 1.875rem;
     }
-    
+
     .cta-title {
-        font-size: 2rem;
+        font-size: 1.875rem;
+    }
+
+    .hero-image img {
+        max-width: 300px;
     }
 }
 
-/* Print styles */
+/* Print Styles */
 @media print {
     .header,
     .store-buttons,
-    .carousel-nav {
+    .carousel-nav,
+    .footer {
         display: none;
     }
-    
+
     body {
         color: black;
     }
-    
+
     a {
         text-decoration: none;
         color: black;
     }
-    
+
     .container {
         max-width: none;
         padding: 0;
     }
+
+    .section {
+        break-inside: avoid;
+    }
 }
 
-/* Reduced motion preferences */
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+
+    .blob {
+        display: none;
+    }
+}
+
+/* Loading States */
+.store-button:active {
+    transform: scale(0.98);
+}
+
+.carousel-dot:focus {
+    outline: 2px solid var(--primary-500);
+    outline-offset: 2px;
+}
+
+/* Accessibility */
+@media (prefers-contrast: more) {
+    :root {
+        --primary-500: #0066cc;
+        --primary-600: #004c99;
+        --primary-700: #003366;
+    }
+
+    .feature-card,
+    .journey-step {
+        border: 2px solid var(--gray-300);
+    }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --gray-50: #1a1a1a;
+        --gray-100: #2d2d2d;
+        --gray-300: #4d4d4d;
+        --gray-500: #808080;
+        --gray-600: #a6a6a6;
+        --gray-700: #cccccc;
+        --gray-900: #ffffff;
+    }
+
+    body {
+        background-color: var(--gray-50);
+    }
+
+    .header {
+        background: var(--gray-100);
+    }
+
+    .feature-card,
+    .journey-step {
+        background: var(--gray-100);
+    }
+
+    .carousel-image {
+        background: var(--gray-100);
     }
 } 
