@@ -514,6 +514,12 @@
                 <img src="lovable-uploads/63e0f60c-7340-4e4c-a174-19ee64b81e9a.png" alt="Word Tube">
                 <span>Word Tube</span>
             </a>
+            <div class="language-selector">
+                <select id="languageSelect" class="language-select">
+                    <option value="en">English</option>
+                    <option value="hr">Hrvatski</option>
+                </select>
+            </div>
         </div>
     </header>
 
@@ -779,6 +785,171 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+    </script>
+
+    <!-- Add this before the closing </body> tag -->
+    <script>
+        // Language handling
+        const translations = {
+            en: {
+                hero: {
+                    title: "Learn Words with Sounds and Pictures",
+                    subtitle: "Fully customizable for your child's learning journey",
+                    description: "Word Tube helps children learn words through customizable sounds and pictures. Perfect for early language development."
+                },
+                features: {
+                    title: "Key Features",
+                    description: "Discover how Word Tube makes learning words fun and engaging for your child",
+                    items: [
+                        {
+                            title: "Customizable Content",
+                            description: "Add your own photos and record your voice to create personalized learning experiences"
+                        },
+                        {
+                            title: "High-Quality Audio",
+                            description: "Crystal clear sound recordings to help your child learn proper pronunciation"
+                        },
+                        {
+                            title: "Multiple Languages",
+                            description: "Support for multiple languages to help bilingual families"
+                        }
+                    ]
+                },
+                screenshots: {
+                    title: "App Screenshots",
+                    description: "Take a look at how Word Tube helps children learn and grow"
+                },
+                journey: {
+                    title: "Learning Journey",
+                    description: "Follow these simple steps to start your child's learning adventure",
+                    steps: [
+                        {
+                            title: "Download the App",
+                            description: "Get Word Tube from the App Store or Google Play Store"
+                        },
+                        {
+                            title: "Create Categories",
+                            description: "Organize words into categories that make sense for your child"
+                        },
+                        {
+                            title: "Add Words",
+                            description: "Add photos and record your voice for each word"
+                        }
+                    ]
+                },
+                cta: {
+                    title: "Start Learning Today",
+                    description: "Download Word Tube now and begin your child's learning journey"
+                }
+            },
+            hr: {
+                hero: {
+                    title: "Učite riječi uz zvukove i slike",
+                    subtitle: "Potpuno prilagodljivo za putovanje učenja vašeg djeteta",
+                    description: "Word Tube pomaže djeci učiti riječi kroz prilagodljive zvukove i slike. Savršeno za rani razvoj jezika."
+                },
+                features: {
+                    title: "Ključne značajke",
+                    description: "Otkrijte kako Word Tube čini učenje riječi zabavnim i zanimljivim za vaše dijete",
+                    items: [
+                        {
+                            title: "Prilagodljivi sadržaj",
+                            description: "Dodajte vlastite fotografije i snimite svoj glas za personalizirano iskustvo učenja"
+                        },
+                        {
+                            title: "Visokokvalitetni zvuk",
+                            description: "Kristalno čisti zvučni zapisi koji pomažu vašem djetetu naučiti pravilni izgovor"
+                        },
+                        {
+                            title: "Više jezika",
+                            description: "Podrška za više jezika za pomoć dvojezičnim obiteljima"
+                        }
+                    ]
+                },
+                screenshots: {
+                    title: "Snimke zaslona aplikacije",
+                    description: "Pogledajte kako Word Tube pomaže djeci učiti i rasti"
+                },
+                journey: {
+                    title: "Putovanje učenja",
+                    description: "Slijedite ove jednostavne korake za početak putovanja učenja vašeg djeteta",
+                    steps: [
+                        {
+                            title: "Preuzmite aplikaciju",
+                            description: "Preuzmite Word Tube s App Store-a ili Google Play trgovine"
+                        },
+                        {
+                            title: "Kreirajte kategorije",
+                            description: "Organizirajte riječi u kategorije koje imaju smisla za vaše dijete"
+                        },
+                        {
+                            title: "Dodajte riječi",
+                            description: "Dodajte fotografije i snimite svoj glas za svaku riječ"
+                        }
+                    ]
+                },
+                cta: {
+                    title: "Počnite učiti danas",
+                    description: "Preuzmite Word Tube sada i započnite putovanje učenja vašeg djeteta"
+                }
+            }
+        };
+
+        // Function to update content based on selected language
+        function updateContent(lang) {
+            const t = translations[lang];
+            
+            // Update hero section
+            document.querySelector('.hero-title').innerHTML = `${t.hero.title}<span class="hero-subtitle">${t.hero.subtitle}</span>`;
+            document.querySelector('.hero-description').textContent = t.hero.description;
+            
+            // Update features section
+            document.querySelector('#features .section-title').textContent = t.features.title;
+            document.querySelector('#features .section-description').textContent = t.features.description;
+            
+            const featureCards = document.querySelectorAll('.feature-card');
+            t.features.items.forEach((item, index) => {
+                if (featureCards[index]) {
+                    featureCards[index].querySelector('.feature-title').textContent = item.title;
+                    featureCards[index].querySelector('.feature-description').textContent = item.description;
+                }
+            });
+            
+            // Update screenshots section
+            document.querySelector('#screenshots .section-title').textContent = t.screenshots.title;
+            document.querySelector('#screenshots .section-description').textContent = t.screenshots.description;
+            
+            // Update journey section
+            document.querySelector('.journey .section-title').textContent = t.journey.title;
+            document.querySelector('.journey .section-description').textContent = t.journey.description;
+            
+            const journeySteps = document.querySelectorAll('.journey-step');
+            t.journey.steps.forEach((step, index) => {
+                if (journeySteps[index]) {
+                    journeySteps[index].querySelector('.step-title').textContent = step.title;
+                    journeySteps[index].querySelector('.step-description').textContent = step.description;
+                }
+            });
+            
+            // Update CTA section
+            document.querySelector('.cta-title').textContent = t.cta.title;
+            document.querySelector('.cta-description').textContent = t.cta.description;
+        }
+
+        // Initialize language selector
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageSelect = document.getElementById('languageSelect');
+            const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+            
+            languageSelect.value = savedLanguage;
+            updateContent(savedLanguage);
+            
+            languageSelect.addEventListener('change', function() {
+                const selectedLanguage = this.value;
+                localStorage.setItem('preferredLanguage', selectedLanguage);
+                updateContent(selectedLanguage);
             });
         });
     </script>
