@@ -26,7 +26,10 @@
         } else if (isLanguagePath) {
           // If we're on a language path, ensure we're on the correct path
           var lang = l.pathname.startsWith('/en') ? 'en' : 'hr';
-          window.history.replaceState(null, null, '/' + lang);
+          // Only update if the path is not exactly /en or /hr
+          if (l.pathname !== '/' + lang) {
+            window.history.replaceState(null, null, '/' + lang);
+          }
         }
       }(window.location))
     </script>
