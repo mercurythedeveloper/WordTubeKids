@@ -10,6 +10,9 @@
       // MIT License
       // https://github.com/rafgraph/spa-github-pages
       (function(l) {
+        // Get the stored language from localStorage or default to 'en'
+        var storedLang = localStorage.getItem('language') || 'en';
+        
         if (l.search[1] === '/') {
           var decoded = l.search.slice(1).split('&').map(function(s) { 
             return s.replace(/~and~/g, '&')
@@ -17,10 +20,16 @@
           window.history.replaceState(null, null,
               l.pathname.slice(0, -1) + decoded + l.hash
           );
+        } else if (l.pathname === '/') {
+          // If we're on the root path, redirect to the stored language
+          window.history.replaceState(null, null, '/' + storedLang);
+        } else if (!l.pathname.startsWith('/en') && !l.pathname.startsWith('/hr')) {
+          // If we're on an invalid path, redirect to the stored language
+          window.history.replaceState(null, null, '/' + storedLang);
         }
       }(window.location))
     </script>
-    <script type="module" crossorigin src="/assets/index.g8JT3gYx.js"></script>
+    <script type="module" crossorigin src="/assets/index.DBnBUOWz.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index.Dnd7MEMs.css">
   </head>
   <body>
