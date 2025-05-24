@@ -10,30 +10,17 @@
       // MIT License
       // https://github.com/rafgraph/spa-github-pages
       (function(l) {
-        // Check if we're on a language path
-        var isLanguagePath = l.pathname.startsWith('/en') || l.pathname.startsWith('/hr');
-        
-        if (l.search[1] === '/' && !isLanguagePath) {
+        if (l.search[1] === '/') {
           var decoded = l.search.slice(1).split('&').map(function(s) { 
             return s.replace(/~and~/g, '&')
           }).join('?');
-          // Only update if we're not in a loop
-          if (!decoded.includes('?/')) {
-            window.history.replaceState(null, null,
-                l.pathname.slice(0, -1) + decoded + l.hash
-            );
-          }
-        } else if (isLanguagePath) {
-          // If we're on a language path, ensure we're on the correct path
-          var lang = l.pathname.startsWith('/en') ? 'en' : 'hr';
-          // Only update if the path is not exactly /en or /hr
-          if (l.pathname !== '/' + lang) {
-            window.history.replaceState(null, null, '/' + lang);
-          }
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
         }
       }(window.location))
     </script>
-    <script type="module" crossorigin src="/assets/index.BCTC5leL.js"></script>
+    <script type="module" crossorigin src="/assets/index.g8JT3gYx.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index.Dnd7MEMs.css">
   </head>
   <body>
