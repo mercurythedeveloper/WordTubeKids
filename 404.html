@@ -10,8 +10,11 @@
       var pathSegmentsToKeep = 1;
 
       var l = window.location;
-      // Only redirect if we're not already in a redirect
-      if (!l.search.includes('?/')) {
+      // Check if we're already on a language path
+      var isLanguagePath = l.pathname.startsWith('/en') || l.pathname.startsWith('/hr');
+      
+      // Only redirect if we're not already in a redirect and not on a language path
+      if (!l.search.includes('?/') && !isLanguagePath) {
         l.replace(
           l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
           l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
@@ -19,6 +22,9 @@
           (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
           l.hash
         );
+      } else if (isLanguagePath) {
+        // If we're on a language path, just serve the index
+        window.location.replace('/');
       }
     </script>
   </head>

@@ -10,7 +10,10 @@
       // MIT License
       // https://github.com/rafgraph/spa-github-pages
       (function(l) {
-        if (l.search[1] === '/' ) {
+        // Check if we're on a language path
+        var isLanguagePath = l.pathname.startsWith('/en') || l.pathname.startsWith('/hr');
+        
+        if (l.search[1] === '/' && !isLanguagePath) {
           var decoded = l.search.slice(1).split('&').map(function(s) { 
             return s.replace(/~and~/g, '&')
           }).join('?');
@@ -20,6 +23,10 @@
                 l.pathname.slice(0, -1) + decoded + l.hash
             );
           }
+        } else if (isLanguagePath) {
+          // If we're on a language path, ensure we're on the correct path
+          var lang = l.pathname.startsWith('/en') ? 'en' : 'hr';
+          window.history.replaceState(null, null, '/' + lang);
         }
       }(window.location))
     </script>
