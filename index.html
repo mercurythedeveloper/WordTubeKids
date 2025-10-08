@@ -7,29 +7,16 @@
     <meta name="description" content="Word Tube - Learn words with sound & pictures — fully customizable for your child. Add images from your child's surroundings, record your voice speaking the words." />
     <meta name="author" content="Word Tube" />
     
-    <!-- GitHub Pages SPA redirect workaround - Process redirected routes -->
+    <!-- GitHub Pages SPA redirect workaround -->
     <script>
+      // Restore the path that was saved by 404.html
       (function() {
-        var redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect);
+        var redirectPath = sessionStorage.getItem('redirectPath');
+        if (redirectPath) {
+          sessionStorage.removeItem('redirectPath');
+          history.replaceState(null, null, redirectPath);
         }
       })();
-    </script>
-    <script>
-      // Single Page Apps for GitHub Pages
-      // https://github.com/rafgraph/spa-github-pages
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      }(window.location))
     </script>
     
     <link rel="icon" href="/lovable-uploads/63e0f60c-7340-4e4c-a174-19ee64b81e9a.png" type="image/png">
