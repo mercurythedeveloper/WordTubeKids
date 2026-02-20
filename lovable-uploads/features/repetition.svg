@@ -1,9 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-  <circle cx="40" cy="40" r="38" fill="#EFF6FF"/>
-  <!-- Large circular arrow -->
-  <path d="M40 14a26 26 0 1 1-24 16" stroke="#3B82F6" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="bgGrad5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EFF6FF"/>
+      <stop offset="100%" stop-color="#DBEAFE"/>
+    </linearGradient>
+  </defs>
+  <circle cx="40" cy="40" r="38" fill="url(#bgGrad5)"/>
+  <!-- Swipe cards stack (showing repetition through card swiping) -->
+  <!-- Back card 3 -->
+  <rect x="20" y="18" width="32" height="40" rx="5" fill="#E0E7FF" stroke="#C7D2FE" stroke-width="1" transform="rotate(6,36,38)"/>
+  <!-- Back card 2 -->
+  <rect x="18" y="16" width="32" height="40" rx="5" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1" transform="rotate(3,34,36)"/>
+  <!-- Front card -->
+  <rect x="16" y="14" width="32" height="40" rx="5" fill="#fff" stroke="#818CF8" stroke-width="2"/>
+  <!-- Star on front card -->
+  <polygon points="32,24 34,30 40,30 35,34 37,40 32,36 27,40 29,34 24,30 30,30" fill="#FBBF24"/>
+  <!-- Small checkmark -->
+  <path d="M28 46 L31 49 L38 42" stroke="#22C55E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Curved arrow showing swipe/repeat motion -->
+  <path d="M52 22 Q68 20 66 36 Q64 50 52 48" stroke="#3B82F6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
   <!-- Arrow head -->
-  <polygon points="16,22 10,34 24,34" fill="#3B82F6"/>
-  <!-- "100x" in center -->
-  <text x="42" y="46" text-anchor="middle" fill="#3B82F6" font-size="18" font-weight="800" font-family="system-ui">100x</text>
+  <polygon points="52,44 52,52 58,48" fill="#3B82F6"/>
+
+  <!-- Progress dots -->
+  <circle cx="54" cy="60" r="2.5" fill="#3B82F6"/>
+  <circle cx="62" cy="60" r="2.5" fill="#3B82F6"/>
+  <circle cx="70" cy="60" r="2.5" fill="#93C5FD"/>
+  <circle cx="46" cy="60" r="2.5" fill="#3B82F6"/>
+
+  <!-- Small sparkle -->
+  <path d="M66 12 L67 16 L70 14 L67 18 L70 20 L66 18 L64 22 L65 18 L62 18 L66 16Z" fill="#FBBF24" opacity="0.7"/>
 </svg>
