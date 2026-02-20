@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <circle cx="40" cy="40" r="38" fill="#FEF3C7"/>
+  <!-- Big question mark -->
+  <text x="40" y="56" text-anchor="middle" fill="#F59E0B" font-size="48" font-weight="800" font-family="system-ui">?</text>
+  <!-- Small speech bubble -->
+  <rect x="48" y="10" width="24" height="16" rx="8" fill="#8B5CF6"/>
+  <polygon points="54,26 58,26 52,32" fill="#8B5CF6"/>
+  <text x="60" y="21" text-anchor="middle" fill="#fff" font-size="8" font-weight="600" font-family="system-ui">Dog!</text>
+</svg>

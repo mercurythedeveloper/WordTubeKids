@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <circle cx="40" cy="40" r="38" fill="#FDF2F8"/>
+  <!-- Large microphone -->
+  <rect x="28" y="16" width="16" height="28" rx="8" fill="#F9A8D4" stroke="#EC4899" stroke-width="2.5"/>
+  <path d="M22 40c0 12 8 18 18 18" stroke="#EC4899" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M50 40c0 12-8 18-18 18" stroke="#EC4899" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <line x1="36" y1="58" x2="36" y2="66" stroke="#EC4899" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="28" y1="66" x2="44" y2="66" stroke="#EC4899" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Camera icon -->
+  <rect x="52" y="42" width="18" height="14" rx="3" fill="#fff" stroke="#EC4899" stroke-width="2"/>
+  <circle cx="61" cy="49" r="4" fill="#F9A8D4" stroke="#EC4899" stroke-width="1.5"/>
+  <rect x="56" y="40" width="8" height="4" rx="1" fill="#EC4899"/>
+</svg>
